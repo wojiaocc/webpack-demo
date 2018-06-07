@@ -83,7 +83,21 @@ module.exports={
         ]
         }
 ```
+CleanWebpackPlugin -- 清理生成的多余文件。
+**安装**
+``` JavaScript
+npm i clean-webpack-plugin --save-dev
+```
+于webpack.config.js中配置：
+``` JavaScript
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
+module.exports={
+        plugins:[
+           new CleanWebpackPlugin(['build'])
+        ]
+        }
+```
 
 
 ## 正式使用Webpack前的准备
@@ -91,3 +105,5 @@ module.exports={
 ``` JavaScript
 npm init
 ```
+
+
