@@ -56,12 +56,14 @@ module.exports={
 ```
 
 style-loader css-loader  -- 将*.css可引入js文件中
+
 **安装**
 ``` JavaScript
 npm install --save-dev style-loader css-loader 
 ```
  
 ExtractTextWebpackPlugin -- 将*.css模块单独打包到css文件中，而不是打包到js文件中。
+
 **安装**
 ``` JavaScript
 npm install --save-dev extract-text-webpack-plugin
@@ -91,6 +93,7 @@ module.exports={
 ```
 
 CleanWebpackPlugin -- 清理生成的多余文件。
+
 **安装**
 ``` JavaScript
 npm i clean-webpack-plugin --save-dev
@@ -110,6 +113,7 @@ Babel -Babel其实是一个编译JavaScript的平台，它可以编译代码帮�
 让你能使用最新的JavaScript代码（ES6，ES7...），而不用管新标准是否被当前使用的浏览器完全支持；
 让你能使用基于JavaScript进行了拓展的语言，比如React的JSX；
 Babel其实是几个模块化的包，其核心功能位于称为babel-core的npm包中，webpack可以把其不同的包整合在一起使用，对于每一个你需要的功能或拓展，你都需要安装单独的包（用得最多的是解析Es6的babel-env-preset包和解析JSX的babel-preset-react包）。
+
 **安装**
 ``` JavaScript
 npm install --save-dev babel-core babel-loader babel-preset-env
@@ -136,7 +140,32 @@ module: {
     }
 ```
 
+图片存放与压缩
+file-loader - webpack文件加载程序模块
+url-loader -webpack的加载程序将文件转换为base64，运用在小图片时转换图片。
+html-withimg-loader -将界面上的图片同时打包
 
+**安装**
+``` JavaScript
+npm install file-loader url-loader html-withimg-loader --save-dev
+```
+于webpack.config.js中配置：
+``` JavaScript
+module.exports={
+module: {
+        rules: [
+        {
+            test: /\.(png|jpg)$/,
+            loader: 'url-loader?limit=8192&name=img/[hash:8].[name].[ext]'
+        },
+        {
+    　　　　test: /\.html$/,
+    　　　　loader: 'html-withimg-loader'
+        }
+        ]
+    }
+    }
+```
 
 
 
