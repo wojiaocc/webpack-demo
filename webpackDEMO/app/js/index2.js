@@ -1,0 +1,1 @@
+import '../css/index2.css'
